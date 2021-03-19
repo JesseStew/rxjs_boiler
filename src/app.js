@@ -38,13 +38,29 @@ import Rx from 'rxjs/Rx';
 //   }
 // )
 
-const set = new Set(['Hello', 44, {title: 'My Title'}])
+// const set = new Set(['Hello', 44, {title: 'My Title'}])
 
-const set$ = Rx.Observable.from(set)
+// const set$ = Rx.Observable.from(set)
 
-set$.subscribe(
-  set => {
-    console.log(set)
+// set$.subscribe(
+//   set => {
+//     console.log(set)
+//   },
+//   err => {
+//     console.log(err)
+//   },
+//   complete => {
+//     console.log('Completed')
+//   }
+// )
+
+const map = new Map([[1,2], [3,4], [5,6]])
+
+const map$ = Rx.Observable.from(map)
+
+map$.subscribe(
+  map => {
+    console.log(map)
   },
   err => {
     console.log(err)
