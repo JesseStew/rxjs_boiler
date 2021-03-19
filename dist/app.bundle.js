@@ -57,6 +57,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var btn = (0, _jquery2.default)('#btn');
+	var input = (0, _jquery2.default)('#input');
+	var output = (0, _jquery2.default)('#output');
 
 	var btnStream$ = _Rx2.default.Observable.fromEvent(btn, 'click');
 
@@ -72,6 +74,18 @@
 
 	inputStream$.subscribe(function (e) {
 	  console.log(e.currentTarget.value);
+	  output.append(e.target.value);
+	}, function (err) {
+	  console.log(err);
+	}, function (err) {
+	  console.log('Completed');
+	});
+
+	var moveStream$ = _Rx2.default.Observable.fromEvent(document, 'mousemove');
+
+	moveStream$.subscribe(function (e) {
+	  console.log(e.target.value);
+	  output.html('<h1>X: ' + e.clientX + ' Y: ' + e.clientY + '</h1>');
 	}, function (err) {
 	  console.log(err);
 	}, function (err) {
