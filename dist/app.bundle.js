@@ -61,7 +61,17 @@
 	var btnStream$ = _Rx2.default.Observable.fromEvent(btn, 'click');
 
 	btnStream$.subscribe(function (e) {
-	  console.log('Clicked');
+	  console.log(e);
+	}, function (err) {
+	  console.log(err);
+	}, function (err) {
+	  console.log('Completed');
+	});
+
+	var inputStream$ = _Rx2.default.Observable.fromEvent(input, 'keyup');
+
+	inputStream$.subscribe(function (e) {
+	  console.log(e.currentTarget.value);
 	}, function (err) {
 	  console.log(err);
 	}, function (err) {
