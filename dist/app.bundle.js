@@ -56,25 +56,49 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var numbers = [33, 44, 55, 66, 77];
+	// const numbers = [33,  44, 55, 66, 77]
 
-	var numbers$ = _Rx2.default.Observable.from(numbers);
+	// const numbers$ = Rx.Observable.from(numbers)
 
-	numbers$.subscribe(function (v) {
-	  console.log(v);
-	}, function (err) {
-	  console.log(err);
-	}, function (complete) {
-	  console.log('Completed');
-	});
+	// numbers$.subscribe(
+	//   v => {
+	//     console.log(v)
+	//   },
+	//   err => {
+	//     console.log(err)
+	//   },
+	//   complete => {
+	//     console.log('Completed')
+	//   }
+	// )
 
-	var posts = [{ title: 'Post One', body: 'This is the body' }, { title: 'Post two', body: 'This is the body' }, { title: 'Post three', body: 'This is the body' }];
+	// const posts = [
+	//   {title: 'Post One', body: 'This is the body'},
+	//   {title: 'Post two', body: 'This is the body'},
+	//   {title: 'Post three', body: 'This is the body'},
+	// ]
 
-	var posts$ = _Rx2.default.Observable.from(posts);
+	// const posts$ = Rx.Observable.from(posts)
 
-	posts$.subscribe(function (post) {
-	  console.log(post);
-	  (0, _jquery2.default)('#posts').append('<li><h3>' + post.title + '</h3><p>' + post.body + '</p></li>');
+	// posts$.subscribe(
+	//   post => {
+	//     console.log(post)
+	//     $('#posts').append('<li><h3>'+post.title+'</h3><p>'+post.body+'</p></li>')
+	//   },
+	//   err => {
+	//     console.log(err)
+	//   },
+	//   complete => {
+	//     console.log('Completed')
+	//   }
+	// )
+
+	var set = new Set(['Hello', 44, { title: 'My Title' }]);
+
+	var set$ = _Rx2.default.Observable.from(set);
+
+	set$.subscribe(function (set) {
+	  console.log(set);
 	}, function (err) {
 	  console.log(err);
 	}, function (complete) {
