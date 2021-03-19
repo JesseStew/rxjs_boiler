@@ -56,25 +56,28 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var btn = (0, _jquery2.default)('#btn');
+	var numbers = [33, 44, 55, 66, 77];
 
-	var btnStream$ = _Rx2.default.Observable.fromEvent(btn, 'click');
+	var numbers$ = _Rx2.default.Observable.from(numbers);
 
-	btnStream$.subscribe(function (e) {
-	  console.log(e);
+	numbers$.subscribe(function (v) {
+	  console.log(v);
 	}, function (err) {
 	  console.log(err);
-	}, function (err) {
+	}, function (complete) {
 	  console.log('Completed');
 	});
 
-	var inputStream$ = _Rx2.default.Observable.fromEvent(input, 'keyup');
+	var posts = [{ title: 'Post One', body: 'This is the body' }, { title: 'Post two', body: 'This is the body' }, { title: 'Post three', body: 'This is the body' }];
 
-	inputStream$.subscribe(function (e) {
-	  console.log(e.currentTarget.value);
+	var posts$ = _Rx2.default.Observable.from(posts);
+
+	posts$.subscribe(function (post) {
+	  console.log(post);
+	  (0, _jquery2.default)('#posts').append('<li><h3>' + post.title + '</h3><p>' + post.body + '</p></li>');
 	}, function (err) {
 	  console.log(err);
-	}, function (err) {
+	}, function (complete) {
 	  console.log('Completed');
 	});
 

@@ -1,32 +1,39 @@
 import $ from 'jquery';
 import Rx from 'rxjs/Rx';
 
-const btn = $('#btn')
+const numbers = [33,  44, 55, 66, 77]
 
-const btnStream$ = Rx.Observable.fromEvent(btn, 'click')
+const numbers$ = Rx.Observable.from(numbers)
 
-btnStream$.subscribe(
-  function(e){
-    console.log(e)
+numbers$.subscribe(
+  v => {
+    console.log(v)
   },
-  function(err){
+  err => {
     console.log(err)
   },
-  function(err){
+  complete => {
     console.log('Completed')
   }
 )
 
-const inputStream$ = Rx.Observable.fromEvent(input, 'keyup')
+const posts = [
+  {title: 'Post One', body: 'This is the body'},
+  {title: 'Post two', body: 'This is the body'},
+  {title: 'Post three', body: 'This is the body'},
+]
 
-inputStream$.subscribe(
-  function(e){
-    console.log(e.currentTarget.value)
+const posts$ = Rx.Observable.from(posts)
+
+posts$.subscribe(
+  post => {
+    console.log(post)
+    $('#posts').append('<li><h3>'+post.title+'</h3><p>'+post.body+'</p></li>')
   },
-  function(err){
+  err => {
     console.log(err)
   },
-  function(err){
+  complete => {
     console.log('Completed')
   }
 )
